@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "com.johannesmp.unityscenereference": "https://github.com/starikcetin/unity-scene-reference.git#upm",
+    "com.mambojambostudios.unity-atoms": "https://github.com/AdamRamberg/unity-atoms.git#canary",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.collab-proxy": "1.2.16",
@@ -42,5 +44,15 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
+  },
+  "lock": {
+    "com.johannesmp.unityscenereference": {
+      "hash": "6b3bbf3b68b23aa88de628095a4656585aaa60df",
+      "revision": "upm"
+    },
+    "com.mambojambostudios.unity-atoms": {
+      "hash": "b51de335e0fb3568a478a7cbd0561a5649f01cf3",
+      "revision": "canary"
+    }
   }
 }
