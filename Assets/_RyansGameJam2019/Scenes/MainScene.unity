@@ -125232,11 +125232,11 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 2
+  m_LinearDrag: 6
   m_AngularDrag: 0.05
   m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Material: {fileID: 6200000, guid: 364326d253a82974a979148b8d1eb691, type: 2}
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -125252,9 +125252,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bdccfe844e1f63d418a5558f1daee75f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSpeed: 9
-  speed: 500
-  stopFactor: 0
+  maxSpeed: 25
+  speed: 400000
+  stopFactor: 5
   rigidbody: {fileID: 758220198}
 --- !u!4 &940544824 stripped
 Transform:
@@ -125907,12 +125907,12 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
-  m_Mass: 0.7853982
+  m_Mass: 1.1780972
   m_LinearDrag: 2
   m_AngularDrag: 0.05
   m_GravityScale: 1
   m_Material: {fileID: 0}
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
@@ -125924,7 +125924,7 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2022698110}
   m_Enabled: 1
-  m_Density: 1
+  m_Density: 1.5
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
