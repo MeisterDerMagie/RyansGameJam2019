@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using MEC;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -70,7 +71,9 @@ public class EnemySpawner : MonoBehaviour
         enemyIsAlive = true;
 
         enemy.GetComponent<EnemyStateBehaviour_HeadHome>().home = gameObject;
-        enemy.GetComponent<EnemyBehaviourController>().spawnerIsActive = true;;
+        enemy.GetComponent<EnemyBehaviourController>().spawnerIsActive = true;
+
+        enemy.transform.DOScale(new Vector3(0.45f, 0.45f, 1f), 0.85f).From().SetEase(Ease.OutElastic);
     }
 
     private void CallBackEnemy()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityAtoms;
 using UnityEngine;
@@ -21,7 +22,8 @@ public class Ball : MonoBehaviour
     {
         var newScale = initialScale.x - ((float)initialCollectedPieces * growAmount) + ((float)collectedPieces.Value * growAmount);
         
-        transform.localScale = new Vector3(newScale, newScale, 1f);
+        var newScaleVector = new Vector3(newScale, newScale, 1f);
+        transform.DOScale(newScaleVector, 0.8f).SetEase(Ease.OutElastic);
     }
 
     private void OnValidate()
