@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ec84a5faf41d58499acc06dc6c7de55, type: 3}
+  m_Name: LoadMainGame
+  m_EditorClassIdentifier: 
+  loadAdditively: 0
+  newScene:
+    sceneAsset: {fileID: 102900000, guid: 2cda990e2423bbf4892e6590ba056729, type: 3}
+    scenePath: Assets/_RyansGameJam2019/Scenes/MainScene.unity
+  scenesToLoadAdditively: []
+  loadingScreen: {fileID: 0}
