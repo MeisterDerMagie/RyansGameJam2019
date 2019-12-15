@@ -38,12 +38,7 @@ public class ObjectSpawner : MonoBehaviour
     {
         if (alreadyCoveredTiles.Contains(_atPosition)) return;
         if (_atPosition.y < Player.position.y) return;
-        foreach (Transform child in blockerContainer)
-        {
-            var blocker = child.GetComponent<RectTransform>().WorldRect();
-            if (blocker.Contains(_atPosition)) return;
-        }
-        
+
         alreadyCoveredTiles.Add(_atPosition);
         GenerateNewObject(_atPosition);
     }
@@ -61,7 +56,14 @@ public class ObjectSpawner : MonoBehaviour
                 y = Random.Range(_atPosition.y - 9.6f, _atPosition.y + 9.6f)
             };
 
-            Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity, transform);
+            bool isInsideBlocker = false;
+            foreach (Transform child in blockerContainer)
+            {
+                var blocker = child.GetComponent<RectTransform>().WorldRect();
+                if (blocker.Contains(spawnPosition)) isInsideBlocker = true;
+            }
+
+            if(!isInsideBlocker) Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity, transform);
         }
     }
 

@@ -22,7 +22,8 @@ public class EnemyStateBehaviour_HeadHome : StateBehaviour_base
     private void FixedUpdate()
     {
         if (!IsActive) return;
-
+        if (home == null || enemyRigidbody.gameObject == null) return;
+        
         Vector2 dir = home.transform.position - enemyRigidbody.transform.position;
         dir.Normalize();
         enemyRigidbody.AddForce(dir * speed, ForceMode2D.Force);

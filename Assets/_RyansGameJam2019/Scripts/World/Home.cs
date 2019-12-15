@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityAtoms;
 using UnityEngine;
@@ -13,6 +14,8 @@ public class Home : MonoBehaviour
     {
         if (!other.CompareTag("Ball")) return;
 
+        other.transform.DOMove(transform.position, 0.5f);
+        
         onPlayerWon.Raise();
     }
 }

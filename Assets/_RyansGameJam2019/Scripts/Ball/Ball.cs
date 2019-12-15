@@ -30,6 +30,7 @@ public class Ball : MonoBehaviour
     private void OnValidate()
     {
         initialScale = transform.localScale;
+        collectedPieces._variable.Reset();
         initialCollectedPieces = collectedPieces._variable.InitialValue;
     }
 }

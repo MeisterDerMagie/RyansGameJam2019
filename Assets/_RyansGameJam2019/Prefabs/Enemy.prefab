@@ -54,7 +54,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.6, y: 0.8}
+  m_Size: {x: 0.78, y: 0.78}
   m_Direction: 0
 --- !u!50 &4747801407645848625
 Rigidbody2D:
@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 5198844179334905742}
   - component: {fileID: 4430596496354208626}
   - component: {fileID: 8980077767090558068}
+  - component: {fileID: 4703366264071128078}
   m_Layer: 0
   m_Name: Graphics
   m_TagString: Untagged
@@ -355,8 +356,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8b218d207c4ffc2409a56e4f7681b012, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a86993baed1ccd3429fed351d7a5eed7, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -385,6 +386,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &4703366264071128078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6727508056909108498}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e2a162ecf76c44dbdbb78d3d066942, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerRigidbody: {fileID: 4747801407645848625}
+  spriteToFlip: {fileID: 4430596496354208626}
 --- !u!1 &8571861020003830603
 GameObject:
   m_ObjectHideFlags: 0
@@ -410,7 +425,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8571861020003830603}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.011, y: 0.181, z: 0}
+  m_LocalPosition: {x: 0.231, y: -0.138, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 5198844179334905742}
