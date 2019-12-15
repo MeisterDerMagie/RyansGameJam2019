@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using MEC;
 using Sirenix.OdinInspector;
+using UnityAtoms;
 using UnityEngine;
 using Wichtel.Extensions;
 
@@ -13,6 +14,7 @@ public class GroundTileController : MonoBehaviour
     [SerializeField, FoldoutGroup("References"), Required] private Transform groundTile2;
     [SerializeField, FoldoutGroup("References"), Required] private Transform groundTile3;
     [SerializeField, FoldoutGroup("References"), Required] private Transform player;
+    [SerializeField, BoxGroup("Atom Events"), Required] private Vector3Event onGroundTileChangedPosition;
     
     private Dictionary<Transform, float> groundTileDistances = new Dictionary<Transform, float>();
 
@@ -20,6 +22,11 @@ public class GroundTileController : MonoBehaviour
     {
         GetDistances();
         Timing.RunCoroutine(_UpdateGroundTilePositions());
+
+        foreach (var tile in groundTileDistances)
+        {
+            onGroundTileChangedPosition.Raise(tile.Key.position);
+        }
     }
 
     private IEnumerator<float> _UpdateGroundTilePositions()
@@ -31,8 +38,16 @@ public class GroundTileController : MonoBehaviour
             foreach (var tile in groundTileDistances)
             {
                 var tilePosition = tile.Key.position;
-                if(tile.Value > (19.2f * 1.5f))        tilePosition = tilePosition.With(y: tilePosition.y + (19.2f * 3f));
-                else if (tile.Value < (-19.2f * 1.5f)) tilePosition = tilePosition.With(y: tilePosition.y - (19.2f * 3f));
+                if (tile.Value > (19.2f * 1.5f))
+                {
+                    tilePosition = tilePosition.With(y: tilePosition.y + (19.2f * 3f));
+                    onGroundTileChangedPosition.Raise(tilePosition);
+                }
+                else if (tile.Value < (-19.2f * 1.5f))
+                {
+                    tilePosition = tilePosition.With(y: tilePosition.y - (19.2f * 3f));
+                    onGroundTileChangedPosition.Raise(tilePosition);
+                }
 
                 tile.Key.position = tilePosition;
             }

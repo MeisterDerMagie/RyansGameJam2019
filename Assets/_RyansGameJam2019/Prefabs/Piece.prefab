@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 46108325081623780}
   - component: {fileID: 46108325081623783}
   - component: {fileID: 46108325081623782}
+  - component: {fileID: 6527279887823034772}
   m_Layer: 0
   m_Name: Piece
   m_TagString: Untagged
@@ -111,3 +112,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectibleType: {fileID: 11400000, guid: f8d1563e4cfb98b44a5d1b1f4470536f, type: 2}
+--- !u!114 &6527279887823034772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 46108325081623784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61db0ad47cec0b14eb4ce043b3775d73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 60
+  ball: {fileID: 0}
+  player: {fileID: 0}

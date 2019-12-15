@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
     {
         ball = GameObject.FindGameObjectWithTag("Ball");
         
-        Timing.RunCoroutine(_CheckBallDistance());
+        Timing.RunCoroutine(_CheckBallDistance().CancelWith(gameObject));
     }
 
     private IEnumerator<float> _CheckBallDistance()
