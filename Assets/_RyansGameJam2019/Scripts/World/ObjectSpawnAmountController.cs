@@ -12,7 +12,7 @@ public class ObjectSpawnAmountController : MonoBehaviour
     [SerializeField, BoxGroup("Settings"), Required] private int maxAmount = 5;
     [SerializeField, BoxGroup("Settings"), Required] private float increasePerTile;
     [SerializeField, BoxGroup("Atom Events"), Required] private Vector3Event onGroundTileChangedPosition;
-    private ObjectSpawner objectSpawner;
+    [SerializeField, ReadOnly] private ObjectSpawner objectSpawner;
     
     private void OnEnable() => onGroundTileChangedPosition.Register(UpdateAmount);
     private void OnDisable() => onGroundTileChangedPosition.Unregister(UpdateAmount);

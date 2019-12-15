@@ -12,14 +12,15 @@ public class Ball : MonoBehaviour
     [SerializeField, BoxGroup("Values"), Required] private IntReference collectedPieces;
     [SerializeField, BoxGroup("Atom Events"), Required] private IntEvent onCollectedPiecesChanged;
 
-    private Vector2 initialScale;
-    private int initialCollectedPieces;
+    [SerializeField, ReadOnly] private Vector2 initialScale;
+    [SerializeField, ReadOnly] private int initialCollectedPieces;
     
     private void OnEnable() => onCollectedPiecesChanged.Register(UpdateBallSize);
     private void OnDisable() => onCollectedPiecesChanged.Unregister(UpdateBallSize);
 
     private void UpdateBallSize()
     {
+        Debug.Log("initialScale = " + initialScale.x);
         var newScale = initialScale.x - ((float)initialCollectedPieces * growAmount) + ((float)collectedPieces.Value * growAmount);
         
         var newScaleVector = new Vector3(newScale, newScale, 1f);
