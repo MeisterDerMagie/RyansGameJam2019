@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Wichtel
-{
+namespace Wichtel{
 public static class MathW
 {
     //remap for float

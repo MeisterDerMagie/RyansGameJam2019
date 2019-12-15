@@ -14,10 +14,7 @@ public class EnemyStateBehaviour_HeadHome : StateBehaviour_base
     [SerializeField, FoldoutGroup("References"), Required] private EnemyBehaviourController behaviourController;
     [SerializeField, FoldoutGroup("References")] public GameObject home;
     
-    protected override void OnEnterState()
-    {
-        
-    }
+    protected override void OnEnterState(){}
 
     private void FixedUpdate()
     {
@@ -37,9 +34,6 @@ public class EnemyStateBehaviour_HeadHome : StateBehaviour_base
         behaviourController.SetNewEnemyState(EnemyStates.WaitingAtHome);
     }
 
-    protected override void OnLeaveState()
-    {
-        
-    }
+    protected override void OnLeaveState(){}
 }
 }

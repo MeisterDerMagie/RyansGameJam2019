@@ -14,6 +14,7 @@ public class EnemyStateBehaviour_WaitAtHome : StateBehaviour_base
     [SerializeField, FoldoutGroup("References"), Required] private EnemyBehaviourController behaviourController;
     [SerializeField, FoldoutGroup("References"), Required] private EnemyCarryingPiece carryingPieceScript;
     [SerializeField, BoxGroup("Atom Events"), Required] private VoidEvent onPlayerLost;
+    [SerializeField, BoxGroup("Atom Events"), Required] private Vector3Event onPlayPoof;
 
     private CoroutineHandle coroutine;
     private bool playerLost;
@@ -23,6 +24,7 @@ public class EnemyStateBehaviour_WaitAtHome : StateBehaviour_base
 
     protected override void OnEnterState()
     {
+        onPlayPoof.Raise(transform.position);
         gameObject.SetActive(false);
         coroutine = Timing.RunCoroutine(WaitAtHomeThenFollowBall());
         carryingPieceScript.EnemyIsCarryingAPiece = false;

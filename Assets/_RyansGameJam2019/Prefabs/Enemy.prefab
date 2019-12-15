@@ -237,6 +237,7 @@ MonoBehaviour:
   behaviourController: {fileID: 2331791454605293168}
   carryingPieceScript: {fileID: 7485940899855995796}
   onPlayerLost: {fileID: 11400000, guid: f91d1bc87e3967c4188409039027cefa, type: 2}
+  onPlayPoof: {fileID: 11400000, guid: 2de080cb50497154eb4c9bf382efa224, type: 2}
 --- !u!114 &1802181157815225255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,7 +356,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: a86993baed1ccd3429fed351d7a5eed7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
