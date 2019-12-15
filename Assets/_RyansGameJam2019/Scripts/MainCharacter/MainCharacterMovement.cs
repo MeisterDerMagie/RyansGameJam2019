@@ -12,10 +12,21 @@ public class MainCharacterMovement : MonoBehaviour
     [SerializeField, BoxGroup("Settings"), Required] private float speed;
     [SerializeField, BoxGroup("Settings"), Required] private float stopFactor = 0.2f;
     [SerializeField, BoxGroup("Atom Events"), Required] private VoidEvent onPlayerWon;
+    [SerializeField, BoxGroup("Atom Events"), Required] private VoidEvent onPlayerLost;
     [SerializeField, FoldoutGroup("References"), Required, ReadOnly] private Rigidbody2D rigidbody;
 
-    private void OnEnable() => onPlayerWon.Register(RemoveThisComponent);
-    private void OnDisable() => onPlayerWon.Unregister(RemoveThisComponent);
+    private void OnEnable()
+    {
+        onPlayerWon.Register(RemoveThisComponent);
+        onPlayerLost.Register(RemoveThisComponent);
+    }
+
+    private void OnDisable()
+    {
+        onPlayerWon.Unregister(RemoveThisComponent);
+        onPlayerLost.Unregister(RemoveThisComponent);
+    }
+
     private void RemoveThisComponent() => Destroy(this);
     
     private void FixedUpdate()

@@ -178,6 +178,7 @@ MonoBehaviour:
       Data: 
   currentState: 0
   spawnerIsActive: 0
+  onPlayerLost: {fileID: 11400000, guid: f91d1bc87e3967c4188409039027cefa, type: 2}
 --- !u!114 &4747801407645848631
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +202,7 @@ MonoBehaviour:
   behaviourController: {fileID: 2331791454605293168}
   ball: {fileID: 0}
   carryingPieceScript: {fileID: 7485940899855995796}
+  onPlayerLost: {fileID: 11400000, guid: f91d1bc87e3967c4188409039027cefa, type: 2}
 --- !u!114 &4747801407645848630
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -234,6 +236,7 @@ MonoBehaviour:
   waitTime: 4
   behaviourController: {fileID: 2331791454605293168}
   carryingPieceScript: {fileID: 7485940899855995796}
+  onPlayerLost: {fileID: 11400000, guid: f91d1bc87e3967c4188409039027cefa, type: 2}
 --- !u!114 &1802181157815225255
 MonoBehaviour:
   m_ObjectHideFlags: 0

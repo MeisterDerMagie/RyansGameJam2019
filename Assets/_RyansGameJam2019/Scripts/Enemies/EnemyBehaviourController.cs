@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
+using UnityAtoms;
 using UnityEngine;
 
 namespace RGJ{
@@ -12,12 +13,17 @@ public class EnemyBehaviourController : SerializedMonoBehaviour
 {
     [SerializeField, BoxGroup("Values"), Required] private EnemyStates currentState;
     [SerializeField, BoxGroup("Values"), ReadOnly] public bool spawnerIsActive;
+    [SerializeField, BoxGroup("Atom Events"), Required] private VoidEvent onPlayerLost;
     
     [SerializeField, FoldoutGroup("References"), Required]
     private Dictionary<EnemyStates, StateBehaviour_base> stateBehaviours;
 
+    private bool playerLost;
     private bool enemyIsStunned;
     private EnemyStates stateAfterStun = EnemyStates.FollowBall;
+
+    private void OnEnable() => onPlayerLost.Register(OnPlayerLost);
+    private void OnDisable() => onPlayerLost.Unregister(OnPlayerLost);
 
     private void Start()
     {
@@ -32,6 +38,8 @@ public class EnemyBehaviourController : SerializedMonoBehaviour
 
     public void SetNewEnemyState(EnemyStates _newState)
     {
+        if (playerLost && _newState != EnemyStates.WaitingAtHome) return;
+        
         Debug.Log("RequestNewState: " + _newState);
         if (enemyIsStunned)
         {
@@ -52,6 +60,13 @@ public class EnemyBehaviourController : SerializedMonoBehaviour
         
         stateBehaviours[_newState].IsActive = true;
         currentState = _newState;
+    }
+
+    private void OnPlayerLost()
+    {
+        enemyIsStunned = false;
+        SetNewEnemyState(EnemyStates.HeadHome);
+        playerLost = true;
     }
 }
 }

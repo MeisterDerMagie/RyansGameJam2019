@@ -15,7 +15,7 @@ public class EnemyStateBehaviour_FollowBall : StateBehaviour_base
     [SerializeField, FoldoutGroup("References"), Required] private EnemyBehaviourController behaviourController;
     [SerializeField, FoldoutGroup("References"), ReadOnly] private GameObject ball;
     [SerializeField, FoldoutGroup("References"), Required] private EnemyCarryingPiece carryingPieceScript;
-    
+    [SerializeField, BoxGroup("Atom Events"), Required] private VoidEvent onPlayerLost;
 
     private void OnEnable()
     {
@@ -45,6 +45,8 @@ public class EnemyStateBehaviour_FollowBall : StateBehaviour_base
         collectedPieces.Value--;
         behaviourController.SetNewEnemyState(EnemyStates.HeadHome);
         carryingPieceScript.EnemyIsCarryingAPiece = true;
+        
+        if(collectedPieces.Value <= 0) onPlayerLost.Raise();
     }
 
     protected override void OnLeaveState()
