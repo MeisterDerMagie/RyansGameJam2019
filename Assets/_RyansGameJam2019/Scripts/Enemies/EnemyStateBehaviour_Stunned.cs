@@ -14,6 +14,7 @@ public class EnemyStateBehaviour_Stunned : StateBehaviour_base
     [SerializeField, FoldoutGroup("References"), Required] private EnemyBehaviourController behaviourController;
     [SerializeField, FoldoutGroup("References"), Required] private EnemyCarryingPiece carryingPieceScript;
     [SerializeField, FoldoutGroup("References"), Required] private Animator stunAnimator;
+    [SerializeField, FoldoutGroup("References"), Required] private AudioSource spawnSound;
     
     protected override void OnEnterState()
     {
@@ -24,6 +25,7 @@ public class EnemyStateBehaviour_Stunned : StateBehaviour_base
     
     protected override void OnLeaveState()
     {
+        spawnSound.Play();
         stunAnimator.SetTrigger("Unstun");
     }
 

@@ -16,6 +16,7 @@ public class EnemyStateBehaviour_FollowBall : StateBehaviour_base
     [SerializeField, FoldoutGroup("References"), ReadOnly] private GameObject ball;
     [SerializeField, FoldoutGroup("References"), Required] private EnemyCarryingPiece carryingPieceScript;
     [SerializeField, BoxGroup("Atom Events"), Required] private VoidEvent onPlayerLost;
+    [SerializeField, FoldoutGroup("References"), Required] private AudioSource stealSound;
 
     private void OnEnable()
     {
@@ -43,6 +44,7 @@ public class EnemyStateBehaviour_FollowBall : StateBehaviour_base
         if (!other.gameObject.CompareTag("Ball")) return;
         
         collectedPieces.Value--;
+        stealSound.Play();
         behaviourController.SetNewEnemyState(EnemyStates.HeadHome);
         carryingPieceScript.EnemyIsCarryingAPiece = true;
         

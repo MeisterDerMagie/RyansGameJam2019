@@ -8,13 +8,15 @@ namespace RGJ{
 public class Attack : SerializedMonoBehaviour
 {
     [SerializeField, FoldoutGroup("References"), Required] private Animator attackAnimator;
+    [SerializeField, FoldoutGroup("References"), Required] private AudioSource attackSound;
     
     [SerializeField, ReadOnly] private List<IDamageable> damageablesInReach = new List<IDamageable>();
 
     private void Update()
     {
         if (!Input.GetButtonDown("Jump")) return;
-
+        
+        attackSound.Play();
         attackAnimator.SetTrigger("Attack");
         foreach (var damageable in damageablesInReach)
         {
