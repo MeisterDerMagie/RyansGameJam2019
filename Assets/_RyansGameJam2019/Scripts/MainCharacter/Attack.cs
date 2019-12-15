@@ -7,12 +7,15 @@ using UnityEngine;
 namespace RGJ{
 public class Attack : SerializedMonoBehaviour
 {
+    [SerializeField, FoldoutGroup("References"), Required] private Animator attackAnimator;
+    
     [SerializeField, ReadOnly] private List<IDamageable> damageablesInReach = new List<IDamageable>();
 
     private void Update()
     {
         if (!Input.GetButtonDown("Jump")) return;
 
+        attackAnimator.SetTrigger("Attack");
         foreach (var damageable in damageablesInReach)
         {
             damageable.DealDamage();
